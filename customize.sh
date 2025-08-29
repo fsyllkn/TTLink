@@ -50,11 +50,11 @@ ui_print "- 还原配置文件"
 
 # Customize module name based on environment
 if [ "$KSU" = "true" ]; then
-  sed -i "s/name=.*/name=TTLink for KernelSU/g" $MODPATH/module.prop
+  sed -i "s/name=.*/name=A-TTLink for KernelSU/g" $MODPATH/module.prop
 elif [ "$APATCH" = "true" ]; then
-  sed -i "s/name=.*/name=TTLink for APatch/g" $MODPATH/module.prop
+  sed -i "s/name=.*/name=A-TTLink for APatch/g" $MODPATH/module.prop
 else
-  sed -i "s/name=.*/name=TTLink for Magisk/g" $MODPATH/module.prop
+  sed -i "s/name=.*/name=A-TTLink for Magisk/g" $MODPATH/module.prop
 fi
 
 largest_folder=$(find /data/adb -maxdepth 1 -type d -name 'TTLink[0-9]*' | sed 's/.*TTLink//' | sed 's/_//g' | sort -nr | head -n 1)
