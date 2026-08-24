@@ -1,6 +1,9 @@
 name: Build TTLink slim reF1nd RC1
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - ci/ref1nd-rc1-slim-20260824
@@ -8,7 +11,7 @@ on:
       - '.ci/**'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -16,19 +19,6 @@ jobs:
     steps:
       - name: Checkout build branch
         uses: actions/checkout@v4
-
-      - name: Record workflow run id
-        shell: bash
-        run: |
-          set -euxo pipefail
-          mkdir -p .ci
-          printf '%s\n' "$GITHUB_RUN_ID" > .ci/ref1nd-run-id.txt
-          printf '%s\n' "$GITHUB_SHA" > .ci/ref1nd-trigger-sha.txt
-          git config user.name 'TTLink CI'
-          git config user.email 'actions@users.noreply.github.com'
-          git add .ci/ref1nd-run-id.txt .ci/ref1nd-trigger-sha.txt
-          git commit -m 'ci: record reF1nd build run [skip ci]' || true
-          git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Checkout exact reF1nd source
         uses: actions/checkout@v4
