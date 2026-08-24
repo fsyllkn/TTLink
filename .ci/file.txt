@@ -1,1 +1,2 @@
-sing-box-ttlink-slim: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, stripped
+sing-box-ttlink-android-arm64: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, stripped
+sing-box-ttlink-linux-amd64:   ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, stripped

@@ -1,0 +1,104 @@
+sing-box-ttlink-linux-amd64: go1.26.6
+	path	github.com/sagernet/sing-box/cmd/sing-box
+	mod	github.com/sagernet/sing-box	v1.14.0-rc.1-reF1nd	
+	dep	github.com/ajg/form	v1.5.1	h1:t9c7v8JUKu/XxOGBU0yjNpaMloxGEJhUkqFRq0ibGeU=
+	dep	github.com/andybalholm/brotli	v1.1.0	h1:eLKJA0d02Lf0mVpIDgYnqXcUn0GqVmEFny3VuID1U3M=
+	dep	github.com/anytls/sing-anytls	v0.0.13
+	=>	github.com/reF1nd/sing-anytls	v0.0.14-0.20260803151749-763fb5bccb9d	h1:OWBTSd6aF96N0c/f4zUYxqTz/0pMGfLtZIoFGN2K4C0=
+	
+	dep	github.com/caddyserver/certmagic	v0.25.3-0.20260421143802-60d9d8b415d6	h1:LYSB6VgWzKtNrcxElw3c97BP40Oc7bizKxA9K1Vi/5k=
+	dep	github.com/caddyserver/zerossl	v0.1.5	h1:dkvOjBAEEtY6LIGAHei7sw2UgqSD6TrWweXpV7lvEvE=
+	dep	github.com/cilium/ebpf	v0.22.1-0.20260724091036-00feb08ae4e5	h1:Cfsjtc5265RrwDPmYujwT/jSkx8hvPMxJofEznS6irw=
+	dep	github.com/clipperhouse/uax29/v2	v2.2.0	h1:ChwIKnQN3kcZteTXMgb1wztSgaU+ZemkgWdohwgs8tY=
+	dep	github.com/coder/websocket	v1.8.14	h1:9L0p0iKiNOibykf283eHkKUHHrpG7f65OE3BhhO7v9g=
+	dep	github.com/cretz/bine	v0.2.0	h1:8GiDRGlTgz+o8H9DSnsl+5MeBK4HsExxgl6WgzOCuZo=
+	dep	github.com/database64128/netx-go	v0.1.1	h1:dT5LG7Gs7zFZBthFBbzWE6K8wAHjSNAaK7wCYZT7NzM=
+	dep	github.com/database64128/tfo-go/v2	v2.3.3	h1:M0X1SgOirhSvMKI8VQfgUtNVM53L6Rzg9Z+DN6fLA50=
+	dep	github.com/florianl/go-nfqueue/v2	v2.1.0	h1:Fywt30TY/evxyDySpXjxQ1jsRW7nQbLpOhELqpr4068=
+	dep	github.com/fsnotify/fsnotify	v1.9.0	h1:2Ml+OJNzbYCTzsxtv8vKSFD9PbJjmhYF14k/jKC7S9k=
+	dep	github.com/go-chi/chi/v5	v5.2.5	h1:Eg4myHZBjyvJmAFjFvWgrqDTXFyOzjj7YIm3L3mu6Ug=
+	dep	github.com/go-chi/render	v1.0.3	h1:AsXqd2a1/INaIfUSKq3G5uA8weYx20FOsM7uSoCyyt4=
+	dep	github.com/gobwas/httphead	v0.1.0	h1:exrUm0f4YX0L7EBwZHuCF4GDp8aJfVeBrlLQrs6NqWU=
+	dep	github.com/gobwas/pool	v0.2.1	h1:xfeeEhW7pwmX8nuLVlqbzVc7udMDrwetjEv+TZIz1og=
+	dep	github.com/godbus/dbus/v5	v5.2.2	h1:TUR3TgtSVDmjiXOgAAyaZbYmIeP3DPkld3jgKGV8mXQ=
+	dep	github.com/gofrs/uuid/v5	v5.5.1	h1:z1Ce19/JwNidXpy3tOQc3241lnJLKdKyq/xlNvlD4Ng=
+	dep	github.com/google/btree	v1.1.3	h1:CVpQJjYgC4VbzxeGVHfvZrv1ctoYCAI8vbl07Fcxlyg=
+	dep	github.com/google/gopacket	v1.1.19	h1:ves8RnFZPGiFnTS0uPQStjwru6uO6h+nlr9j6fL7kF8=
+	dep	github.com/hashicorp/yamux	v0.1.2	h1:XtB8kyFOyHXYVFnwT5C3+Bdo8gArse7j2AQ0DA0Uey8=
+	dep	github.com/huin/goupnp	v1.3.0	h1:UvLUlWDNpoUdYzb2TCn+MuTWtcjXKSza2n6CBdQ0xXc=
+	dep	github.com/jackpal/go-nat-pmp	v1.0.2	h1:KzKSgb7qkJvOUTqYl9/Hg/me3pWgBmERKrTGD7BdWus=
+	dep	github.com/jsimonetti/rtnetlink	v1.4.1	h1:JfD4jthWBqZMEffc5RjgmlzpYttAVw1sdnmiNaPO3hE=
+	dep	github.com/klauspost/compress	v1.19.1	h1:VsB4HPswih7mmZ8WleSFQ75c/Ui1M4trX5oAsJnhSlk=
+	dep	github.com/klauspost/cpuid/v2	v2.3.0	h1:S4CRMLnYUhGeDFDqkGriYKdfoFlDnMtqTiI/sFzhA9Y=
+	dep	github.com/koron/go-ssdp	v0.0.4	h1:1IDwrghSKYM7yLf7XCzbByg2sJ/JcNOZRXS2jczTwz0=
+	dep	github.com/libdns/libdns	v1.1.1	h1:wPrHrXILoSHKWJKGd0EiAVmiJbFShguILTg9leS/P/U=
+	dep	github.com/libp2p/go-nat	v1.0.1-0.20250821073202-01afc089f138	h1:YohuNPT/1k3VcThCQlBZ43PCPWPfMRS1zcxWBF2SLK8=
+	dep	github.com/libp2p/go-netroute	v0.2.1	h1:V8kVrpD8GK0Riv15/7VN6RbUQ3URNZVosw7H2v9tksU=
+	dep	github.com/logrusorgru/aurora	v2.0.3+incompatible	h1:tOpm7WcpBTn4fjmVfgpQq0EfczGlG91VSDkswnjF5A8=
+	dep	github.com/mattn/go-runewidth	v0.0.27	h1:Feg/Oou5zI/wnpgDF6omIU0OokC9GxLC/WRknhVlIR0=
+	dep	github.com/mdlayher/netlink	v1.11.2	h1:HKh2jqe+omdSWcQ88nrT7INE61B0NXfiSPFdgL4YbNI=
+	dep	github.com/mdlayher/socket	v0.6.0	h1:ScZPaAGyO1icQnbFrhPM8mnXyMu9qukC1K4ZoM2IQKU=
+	dep	github.com/metacubex/utls	v1.8.7	h1:Cp+yWkNTFkSihETgGWq34hlVFds5HpYWVOR1xovUVTs=
+	dep	github.com/mholt/acmez/v3	v3.1.6	h1:eGVQNObP0pBN4sxqrXeg7MYqTOWyoiYpQqITVWlrevk=
+	dep	github.com/miekg/dns	v1.1.72	h1:vhmr+TF2A3tuoGNkLDFK9zi36F2LS+hKTRW0Uf8kbzI=
+	dep	github.com/oschwald/maxminddb-golang	v1.13.1	h1:G3wwjdN9JmIK2o/ermkHM+98oX5fS+k5MbwsmL4MRQE=
+	dep	github.com/pires/go-proxyproto	v0.8.1	h1:9KEixbdJfhrbtjpz/ZwCdWDD2Xem0NZ38qMYaASJgp0=
+	dep	github.com/quic-go/qpack	v0.6.0	h1:g7W+BMYynC1LbYLSqRt8PBg5Tgwxn214ZZR34VIOjz8=
+	dep	github.com/sagernet/bbolt	v0.0.0-20260823094646-e24805439c9c	h1:JdEDkgiwsDxiZb4+dQYgVOU/lND+jZxFmN5y/q49EXk=
+	dep	github.com/sagernet/cors	v1.2.1	h1:Cv5Z8y9YSD6Gm+qSpNrL3LO4lD3eQVvbFYJSG7JCMHQ=
+	dep	github.com/sagernet/fswatch	v0.1.2	h1:/TT7k4mkce1qFPxamLO842WjqBgbTBiXP2mlUjp9PFk=
+	dep	github.com/sagernet/gvisor	v0.0.0-20260727.0-sing-box-mod.1	h1:IdQ7yTKkB2wv8txwshxUroPlO4npOYAV71xb7xQ7Lys=
+	dep	github.com/sagernet/netlink	v0.0.0-20260814022025-64455d367bbf	h1:b/3rm+KvxzuYRcnMdLq/hmcqX6/2B8k24l6SDHL2Piw=
+	dep	github.com/sagernet/nftables	v0.3.0-mod.4	h1:vnOtcDYeSXv2e5RoRuGH0lrpttQFJ8iC4ICS2nhlDSo=
+	dep	github.com/sagernet/quic-go	v0.61.0-sing-box-mod.5	h1:D41e0fUHgdiYV2r4eGF3LgnBWNjYHm781dNW87IDzWc=
+	dep	github.com/sagernet/sing	v0.9.0-beta.4	h1:DYoEzb3FeCZ9bA66hJmL0NFDXckZpa4oYF/VpbFJEkE=
+	dep	github.com/sagernet/sing-mux	v0.3.5	h1:RHnhVEc+SFqkrK4xMygYjDwwLhzp2Bj3lztSukONfhI=
+	dep	github.com/sagernet/sing-quic	v0.7.0-beta.3	h1:jQA8vurQ2c8uKebdSq5G1N4EnSLpq2l6rEGJ7Dv6hXA=
+	dep	github.com/sagernet/sing-shadowsocks	v0.2.8	h1:PURj5PRoAkqeHh2ZW205RWzN9E9RtKCVCzByXruQWfE=
+	dep	github.com/sagernet/sing-shadowsocks2	v0.2.1	h1:dWV9OXCeFPuYGHb6IRqlSptVnSzOelnqqs2gQ2/Qioo=
+	dep	github.com/sagernet/sing-shadowtls	v0.2.1	h1:ZiHZdnEnP+YS73NMsxiZmIFCwNd0M4k7PkGCKNXhbaM=
+	dep	github.com/sagernet/sing-snell	v0.0.0-20260824011554-f8ab8029469a
+	=>	github.com/reF1nd/sing-snell	v0.0.0-20260824091114-c7a4132b95a4	h1:k3w8X9C+gj9TuigLxHBhLXvN50g2vc1Fllk3bNdOyyY=
+	
+	dep	github.com/sagernet/sing-tun	v0.9.0-beta.2
+	=>	github.com/reF1nd/sing-tun	v0.8.14-0.20260822142740-b280d5781283	h1:LqPgeh4S+y+6tHQlxke00NMKfK/KmaPfXZZ1sBFVtao=
+	
+	dep	github.com/sagernet/sing-vmess	v0.2.8-0.20250909125414-3aed155119a1	h1:aSwUNYUkVyVvdmBSufR8/nRFonwJeKSIROxHcm5br9o=
+	dep	github.com/sagernet/smux	v1.5.50-sing-box-mod.1	h1:XkJcivBC9V4wBjiGXIXZ229aZCU1hzcbp6kSkkyQ478=
+	dep	github.com/sagernet/ws	v0.0.0-20231204124109-acfe8907c854	h1:6uUiZcDRnZSAegryaUGwPC/Fj13JSHwiTftrXhMmYOc=
+	dep	github.com/spf13/cobra	v1.10.2	h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=
+	dep	github.com/spf13/pflag	v1.0.10	h1:4EBh2KAYBwaONj6b2Ye1GiHfwjqyROoF4RwYO+vPwFk=
+	dep	github.com/vishvananda/netns	v0.0.5	h1:DfiHV+j8bA32MFM7bfEunvT8IAqQ/NzSJHtcmW5zdEY=
+	dep	github.com/zeebo/blake3	v0.2.4	h1:KYQPkhpRtcqh0ssGYcKLG1JYvddkEA8QwCM/yBqhaZI=
+	dep	go.uber.org/multierr	v1.11.0	h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=
+	dep	go.uber.org/zap	v1.27.1	h1:08RqriUEv8+ArZRYSTXy1LeBScaMpVSTBhCeaZYfMYc=
+	dep	go.uber.org/zap/exp	v0.3.0	h1:6JYzdifzYkGmTdRR59oYH+Ng7k49H9qVpWwNSsGJj3U=
+	dep	go4.org/netipx	v0.0.0-20231129151722-fdeea329fbba	h1:0b9z3AuHCjxk0x/opv64kcgZLBseWJUpBw5I82+2U4M=
+	dep	golang.org/x/crypto	v0.54.0	h1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=
+	dep	golang.org/x/exp	v0.0.0-20260410095643-746e56fc9e2f	h1:W3F4c+6OLc6H2lb//N1q4WpJkhzJCK5J6kUi1NTVXfM=
+	dep	golang.org/x/mod	v0.37.0	h1:vF1DjpVEshcIqoEaauuHebaLk1O1forxjxBaVn884JQ=
+	dep	golang.org/x/net	v0.57.0	h1:K5+3DljvIuDG9/Jv9rvyMywYNFCQ9RSUY6OOTTkT+tE=
+	dep	golang.org/x/sync	v0.22.0	h1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=
+	dep	golang.org/x/sys	v0.47.0	h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=
+	dep	golang.org/x/term	v0.45.0	h1:NwWyBmoJCbfTHpxrWoZ9C6/VxOf7ic219I8xZZFdrf0=
+	dep	golang.org/x/text	v0.40.0	h1:Ub2Z6/xjgF1WrYQz2nuITOEegKFtiIy+rieRJ5lHZKs=
+	dep	golang.org/x/time	v0.15.0	h1:bbrp8t3bGUeFOx08pvsMYRTCVSMk89u4tKbNOZbp88U=
+	dep	golang.zx2c4.com/wireguard/wgctrl	v0.0.0-20241231184526-a9ab2273dd10	h1:3GDAcqdIg1ozBNLgPy4SLT84nfcBjr6rhGtXYtrkWLU=
+	dep	google.golang.org/genproto/googleapis/rpc	v0.0.0-20251202230838-ff82c1b0f217	h1:gRkg/vSppuSQoDjxyiGfN4Upv/h/DQmIR10ZU8dh4Ww=
+	dep	google.golang.org/grpc	v1.79.1	h1:zGhSi45ODB9/p3VAawt9a+O/MULLl9dpizzNNpq7flY=
+	dep	google.golang.org/protobuf	v1.36.11	h1:fV6ZwhNocDyBLK0dj+fg8ektcVegBBuEolpbTQyBNVE=
+	dep	gopkg.in/yaml.v3	v3.0.1	h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
+	dep	lukechampine.com/blake3	v1.3.0	h1:sJ3XhFINmHSrYCgl958hscfIa3bw8x4DqMP3u1YvoYE=
+	build	-buildmode=exe
+	build	-compiler=gc
+	build	-tags=with_quic,with_utls,with_clash_api,with_gvisor,with_ebpf,badlinkname,tfogo_checklinkname0
+	build	-trimpath=true
+	build	DefaultGODEBUG=cryptocustomrand=1,tlssecpmlkem=0,urlstrictcolons=0
+	build	CGO_ENABLED=0
+	build	GOARCH=amd64
+	build	GOOS=linux
+	build	GOAMD64=v1
+	build	vcs=git
+	build	vcs.revision=1eeea68a0bbcfa1a92af06149f95f41d73b3db49
+	build	vcs.time=2026-08-24T11:05:23Z
+	build	vcs.modified=false

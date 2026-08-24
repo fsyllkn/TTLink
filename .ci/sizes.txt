@@ -1,1 +1,2 @@
-sing-box-ttlink-slim 51904772 bytes
+sing-box-ttlink-android-arm64 51904772 bytes
+sing-box-ttlink-linux-amd64 49311870 bytes

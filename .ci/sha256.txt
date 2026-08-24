@@ -1,1 +1,2 @@
-5250d51769a4f31291fc46ca646a740c177ab4d96fddc42b2d24297097a75a2a  sing-box-ttlink-slim
+5250d51769a4f31291fc46ca646a740c177ab4d96fddc42b2d24297097a75a2a  sing-box-ttlink-android-arm64
+63f67745e9c7e0a3ccd1cee4d1c5c0ff49ea2ce9a558d78f276392feb0b0127b  sing-box-ttlink-linux-amd64
