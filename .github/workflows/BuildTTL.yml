@@ -55,28 +55,25 @@ jobs:
           grep -q 'with_utls' go-version-slim.txt
           grep -q 'with_clash_api' go-version-slim.txt
           grep -q 'with_gvisor' go-version-slim.txt
-          gzip -9 -k sing-box-ttlink-slim
 
-      - name: Publish temporary release asset
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          set -euxo pipefail
-          gh release delete ttlink-ref1nd-slim-temp --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag || true
-          gh release create ttlink-ref1nd-slim-temp artifact/sing-box-ttlink-slim.gz artifact/sha256.txt artifact/sizes.txt artifact/go-version-slim.txt \
-            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease \
-            --title 'Temporary TTLink reF1nd RC1 slim build' \
-            --notes 'Temporary CI artifact. Do not use as a TTLink release.'
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ttlink-ref1nd-rc1-slim-arm64
+          path: artifact/
+          compression-level: 9
+          retention-days: 1
 
-      - name: Publish metadata to CI branch
+      - name: Publish run metadata to CI branch
         shell: bash
         run: |
           set -euxo pipefail
           mkdir -p .ci
+          printf '%s\n' "$GITHUB_RUN_ID" > .ci/run-id.txt
+          printf '%s\n' "$GITHUB_SHA" > .ci/trigger-sha.txt
           cp artifact/go-version-slim.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
           git config user.name 'TTLink CI'
           git config user.email 'actions@users.noreply.github.com'
           git add .ci/
-          git commit -m 'ci: publish slim reF1nd metadata [skip ci]' || true
+          git commit -m 'ci: publish slim build run metadata [skip ci]' || true
           git push origin "HEAD:${GITHUB_REF_NAME}"
