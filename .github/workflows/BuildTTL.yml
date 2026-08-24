@@ -31,22 +31,19 @@ jobs:
           go-version: 1.26.6
           cache: false
 
-      - name: Build TTLink slim Android arm64 cores
+      - name: Build TTLink slim Android arm64 core
         shell: bash
         run: |
           set -euxo pipefail
           cd sing-box
           git tag -f v1.14.0-rc.1-reF1nd 1eeea68a0bbcfa1a92af06149f95f41d73b3db49
           mkdir -p ../artifact
-
           export CGO_ENABLED=0
           export GOOS=android
           export GOARCH=arm64
-
           TAGS_SLIM='with_quic,with_utls,with_clash_api,with_gvisor,with_ebpf,badlinkname,tfogo_checklinkname0'
           TAGS="$TAGS_SLIM" make build
           mv sing-box ../artifact/sing-box-ttlink-slim
-
           cd ../artifact
           chmod 0755 sing-box-ttlink-slim
           file sing-box-ttlink-slim | tee file.txt
@@ -60,15 +57,26 @@ jobs:
           grep -q 'with_gvisor' go-version-slim.txt
           gzip -9 -k sing-box-ttlink-slim
 
-      - name: Publish temporary build to CI branch
+      - name: Publish temporary release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euxo pipefail
+          gh release delete ttlink-ref1nd-slim-temp --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag || true
+          gh release create ttlink-ref1nd-slim-temp artifact/sing-box-ttlink-slim.gz artifact/sha256.txt artifact/sizes.txt artifact/go-version-slim.txt \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease \
+            --title 'Temporary TTLink reF1nd RC1 slim build' \
+            --notes 'Temporary CI artifact. Do not use as a TTLink release.'
+
+      - name: Publish metadata to CI branch
         shell: bash
         run: |
           set -euxo pipefail
           mkdir -p .ci
-          cp artifact/sing-box-ttlink-slim.gz .ci/
           cp artifact/go-version-slim.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
           git config user.name 'TTLink CI'
           git config user.email 'actions@users.noreply.github.com'
           git add .ci/
-          git commit -m 'ci: publish slim reF1nd core [skip ci]'
+          git commit -m 'ci: publish slim reF1nd metadata [skip ci]' || true
           git push origin "HEAD:${GITHUB_REF_NAME}"
