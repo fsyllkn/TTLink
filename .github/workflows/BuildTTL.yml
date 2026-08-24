@@ -45,35 +45,40 @@ jobs:
           go-version: 1.26.6
           cache: false
 
-      - name: Build TTLink slim Android arm64 core
+      - name: Build TTLink slim Android arm64 and Linux amd64 cores
         shell: bash
         run: |
           set -euxo pipefail
           cd sing-box
           git tag -f v1.14.0-rc.1-reF1nd 1eeea68a0bbcfa1a92af06149f95f41d73b3db49
           mkdir -p ../artifact
-          export CGO_ENABLED=0
-          export GOOS=android
-          export GOARCH=arm64
           TAGS_SLIM='with_quic,with_utls,with_clash_api,with_gvisor,with_ebpf,badlinkname,tfogo_checklinkname0'
+
+          export CGO_ENABLED=0 GOOS=android GOARCH=arm64
           TAGS="$TAGS_SLIM" make build
-          mv sing-box ../artifact/sing-box-ttlink-slim
+          mv sing-box ../artifact/sing-box-ttlink-android-arm64
+
+          export CGO_ENABLED=0 GOOS=linux GOARCH=amd64
+          TAGS="$TAGS_SLIM" make build
+          mv sing-box ../artifact/sing-box-ttlink-linux-amd64
+
           cd ../artifact
-          chmod 0755 sing-box-ttlink-slim
-          file sing-box-ttlink-slim | tee file.txt
-          go version -m sing-box-ttlink-slim | tee go-version-slim.txt
-          sha256sum sing-box-ttlink-slim | tee sha256.txt
-          stat -c '%n %s bytes' sing-box-ttlink-slim | tee sizes.txt
-          grep -q 'with_ebpf' go-version-slim.txt
-          grep -q 'with_quic' go-version-slim.txt
-          grep -q 'with_utls' go-version-slim.txt
-          grep -q 'with_clash_api' go-version-slim.txt
-          grep -q 'with_gvisor' go-version-slim.txt
+          chmod 0755 sing-box-ttlink-*
+          file sing-box-ttlink-* | tee file.txt
+          go version -m sing-box-ttlink-android-arm64 | tee go-version-android.txt
+          go version -m sing-box-ttlink-linux-amd64 | tee go-version-linux.txt
+          sha256sum sing-box-ttlink-* | tee sha256.txt
+          stat -c '%n %s bytes' sing-box-ttlink-* | tee sizes.txt
+          grep -q 'with_ebpf' go-version-android.txt
+          grep -q 'with_quic' go-version-android.txt
+          grep -q 'with_utls' go-version-android.txt
+          grep -q 'with_clash_api' go-version-android.txt
+          grep -q 'with_gvisor' go-version-android.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ttlink-ref1nd-rc1-slim-arm64
+          name: ttlink-ref1nd-rc1-slim-crosscheck
           path: artifact/
           compression-level: 9
           retention-days: 1
@@ -86,7 +91,7 @@ jobs:
           git config user.email 'actions@users.noreply.github.com'
           git pull --rebase origin "$GITHUB_REF_NAME"
           mkdir -p .ci
-          cp artifact/go-version-slim.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
+          cp artifact/go-version-android.txt artifact/go-version-linux.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
           git add .ci/
-          git commit -m 'ci: publish slim build metadata [skip ci]' || true
+          git commit -m 'ci: publish slim crosscheck metadata [skip ci]' || true
           git push origin "HEAD:${GITHUB_REF_NAME}"
