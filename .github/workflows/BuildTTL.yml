@@ -1,9 +1,6 @@
 name: Build TTLink slim reF1nd RC1
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - ci/ref1nd-rc1-slim-20260824
@@ -11,7 +8,7 @@ on:
       - '.ci/**'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -50,27 +47,28 @@ jobs:
           TAGS="$TAGS_SLIM" make build
           mv sing-box ../artifact/sing-box-ttlink-slim
 
-          TAGS_COMPAT="${TAGS_SLIM},with_tailscale,with_connection_history"
-          TAGS="$TAGS_COMPAT" make build
-          mv sing-box ../artifact/sing-box-ttlink-compat
-
           cd ../artifact
-          chmod 0755 sing-box-ttlink-*
-          file sing-box-ttlink-* | tee file.txt
+          chmod 0755 sing-box-ttlink-slim
+          file sing-box-ttlink-slim | tee file.txt
           go version -m sing-box-ttlink-slim | tee go-version-slim.txt
-          go version -m sing-box-ttlink-compat | tee go-version-compat.txt
-          sha256sum sing-box-ttlink-* | tee sha256.txt
-          stat -c '%n %s bytes' sing-box-ttlink-* | tee sizes.txt
+          sha256sum sing-box-ttlink-slim | tee sha256.txt
+          stat -c '%n %s bytes' sing-box-ttlink-slim | tee sizes.txt
           grep -q 'with_ebpf' go-version-slim.txt
           grep -q 'with_quic' go-version-slim.txt
           grep -q 'with_utls' go-version-slim.txt
           grep -q 'with_clash_api' go-version-slim.txt
           grep -q 'with_gvisor' go-version-slim.txt
+          gzip -9 -k sing-box-ttlink-slim
 
-      - name: Upload slim cores
-        uses: actions/upload-artifact@v4
-        with:
-          name: ttlink-ref1nd-rc1-slim-arm64
-          path: artifact/
-          compression-level: 9
-          retention-days: 1
+      - name: Publish temporary build to CI branch
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p .ci
+          cp artifact/sing-box-ttlink-slim.gz .ci/
+          cp artifact/go-version-slim.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
+          git config user.name 'TTLink CI'
+          git config user.email 'actions@users.noreply.github.com'
+          git add .ci/
+          git commit -m 'ci: publish slim reF1nd core [skip ci]'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
