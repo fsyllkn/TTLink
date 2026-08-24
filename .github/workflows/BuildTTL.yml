@@ -17,6 +17,20 @@ jobs:
       - name: Checkout build branch
         uses: actions/checkout@v4
 
+      - name: Publish run id immediately
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git config user.name 'TTLink CI'
+          git config user.email 'actions@users.noreply.github.com'
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          mkdir -p .ci
+          printf '%s\n' "$GITHUB_RUN_ID" > .ci/run-id.txt
+          printf '%s\n' "$GITHUB_SHA" > .ci/trigger-sha.txt
+          git add .ci/run-id.txt .ci/trigger-sha.txt
+          git commit -m 'ci: record slim build run [skip ci]' || true
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
       - name: Checkout exact reF1nd source
         uses: actions/checkout@v4
         with:
@@ -64,16 +78,15 @@ jobs:
           compression-level: 9
           retention-days: 1
 
-      - name: Publish run metadata to CI branch
+      - name: Publish build metadata
         shell: bash
         run: |
           set -euxo pipefail
-          mkdir -p .ci
-          printf '%s\n' "$GITHUB_RUN_ID" > .ci/run-id.txt
-          printf '%s\n' "$GITHUB_SHA" > .ci/trigger-sha.txt
-          cp artifact/go-version-slim.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
           git config user.name 'TTLink CI'
           git config user.email 'actions@users.noreply.github.com'
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          mkdir -p .ci
+          cp artifact/go-version-slim.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
           git add .ci/
-          git commit -m 'ci: publish slim build run metadata [skip ci]' || true
+          git commit -m 'ci: publish slim build metadata [skip ci]' || true
           git push origin "HEAD:${GITHUB_REF_NAME}"
