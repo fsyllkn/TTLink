@@ -1,4 +1,4 @@
-name: Build TTLink slim reF1nd RC1
+name: Build TTLink slim reF1nd stable
 
 on:
   push:
@@ -28,21 +28,21 @@ jobs:
           printf '%s\n' "$GITHUB_RUN_ID" > .ci/run-id.txt
           printf '%s\n' "$GITHUB_SHA" > .ci/trigger-sha.txt
           git add .ci/run-id.txt .ci/trigger-sha.txt
-          git commit -m 'ci: record slim build run [skip ci]' || true
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git commit -m 'ci: record stable slim build run [skip ci]' || true
+          git push origin "HEAD:$GITHUB_REF_NAME"
 
       - name: Checkout exact reF1nd source
         uses: actions/checkout@v4
         with:
           repository: reF1nd/sing-box
-          ref: 1eeea68a0bbcfa1a92af06149f95f41d73b3db49
+          ref: 6754cc79bc477a5411af8c7d8e7fa97d441c4986
           fetch-depth: 1
           path: sing-box
 
-      - name: Set up Go 1.26.6
+      - name: Set up Go 1.25.5
         uses: actions/setup-go@v6
         with:
-          go-version: 1.26.6
+          go-version: 1.25.5
           cache: false
 
       - name: Build TTLink slim Android arm64 and Linux amd64 cores
@@ -50,7 +50,7 @@ jobs:
         run: |
           set -euxo pipefail
           cd sing-box
-          git tag -f v1.14.0-rc.1-reF1nd 1eeea68a0bbcfa1a92af06149f95f41d73b3db49
+          git tag -f v1.14.1-reF1nd 6754cc79bc477a5411af8c7d8e7fa97d441c4986
           mkdir -p ../artifact
           TAGS_SLIM='with_quic,with_utls,with_clash_api,with_gvisor,with_ebpf,badlinkname,tfogo_checklinkname0'
 
@@ -78,7 +78,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ttlink-ref1nd-rc1-slim-crosscheck
+          name: ttlink-ref1nd-1.14.1-slim-crosscheck
           path: artifact/
           compression-level: 9
           retention-days: 1
@@ -93,5 +93,5 @@ jobs:
           mkdir -p .ci
           cp artifact/go-version-android.txt artifact/go-version-linux.txt artifact/sha256.txt artifact/sizes.txt artifact/file.txt .ci/
           git add .ci/
-          git commit -m 'ci: publish slim crosscheck metadata [skip ci]' || true
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git commit -m 'ci: publish stable slim metadata [skip ci]' || true
+          git push origin "HEAD:$GITHUB_REF_NAME"
