@@ -1,6 +1,7 @@
-sing-box-ttlink-linux-amd64: go1.26.6
+sing-box-ttlink-linux-amd64: go1.25.5
 	path	github.com/sagernet/sing-box/cmd/sing-box
-	mod	github.com/sagernet/sing-box	v1.14.0-rc.1-reF1nd	
+	mod	github.com/sagernet/sing-box	v1.14.1-reF1nd	
+	dep	github.com/CHIZI-0618/sing-ebpf	v0.1.0-alpha.8.0.20260915062432-c52c21d4066a	h1:/wMxLubQnTGIGUScXeuOf9tvdKHx3DVeMqlUPKY2VEE=
 	dep	github.com/ajg/form	v1.5.1	h1:t9c7v8JUKu/XxOGBU0yjNpaMloxGEJhUkqFRq0ibGeU=
 	dep	github.com/andybalholm/brotli	v1.1.0	h1:eLKJA0d02Lf0mVpIDgYnqXcUn0GqVmEFny3VuID1U3M=
 	dep	github.com/anytls/sing-anytls	v0.0.13
@@ -8,7 +9,7 @@ sing-box-ttlink-linux-amd64: go1.26.6
 	
 	dep	github.com/caddyserver/certmagic	v0.25.3-0.20260421143802-60d9d8b415d6	h1:LYSB6VgWzKtNrcxElw3c97BP40Oc7bizKxA9K1Vi/5k=
 	dep	github.com/caddyserver/zerossl	v0.1.5	h1:dkvOjBAEEtY6LIGAHei7sw2UgqSD6TrWweXpV7lvEvE=
-	dep	github.com/cilium/ebpf	v0.22.1-0.20260724091036-00feb08ae4e5	h1:Cfsjtc5265RrwDPmYujwT/jSkx8hvPMxJofEznS6irw=
+	dep	github.com/cilium/ebpf	v0.22.1-0.20260910105759-60e81073fdc6	h1:BdLBpmxO6ShIDtGwvPrTeEBF1YUXbtADExQa+J7jKnE=
 	dep	github.com/clipperhouse/uax29/v2	v2.2.0	h1:ChwIKnQN3kcZteTXMgb1wztSgaU+ZemkgWdohwgs8tY=
 	dep	github.com/coder/websocket	v1.8.14	h1:9L0p0iKiNOibykf283eHkKUHHrpG7f65OE3BhhO7v9g=
 	dep	github.com/cretz/bine	v0.2.0	h1:8GiDRGlTgz+o8H9DSnsl+5MeBK4HsExxgl6WgzOCuZo=
@@ -50,20 +51,20 @@ sing-box-ttlink-linux-amd64: go1.26.6
 	dep	github.com/sagernet/gvisor	v0.0.0-20260727.0-sing-box-mod.1	h1:IdQ7yTKkB2wv8txwshxUroPlO4npOYAV71xb7xQ7Lys=
 	dep	github.com/sagernet/netlink	v0.0.0-20260814022025-64455d367bbf	h1:b/3rm+KvxzuYRcnMdLq/hmcqX6/2B8k24l6SDHL2Piw=
 	dep	github.com/sagernet/nftables	v0.3.0-mod.4	h1:vnOtcDYeSXv2e5RoRuGH0lrpttQFJ8iC4ICS2nhlDSo=
-	dep	github.com/sagernet/quic-go	v0.61.0-sing-box-mod.5	h1:D41e0fUHgdiYV2r4eGF3LgnBWNjYHm781dNW87IDzWc=
-	dep	github.com/sagernet/sing	v0.9.0-beta.4	h1:DYoEzb3FeCZ9bA66hJmL0NFDXckZpa4oYF/VpbFJEkE=
-	dep	github.com/sagernet/sing-mux	v0.3.5	h1:RHnhVEc+SFqkrK4xMygYjDwwLhzp2Bj3lztSukONfhI=
-	dep	github.com/sagernet/sing-quic	v0.7.0-beta.3	h1:jQA8vurQ2c8uKebdSq5G1N4EnSLpq2l6rEGJ7Dv6hXA=
+	dep	github.com/sagernet/quic-go	v0.61.0-sing-box-mod.7	h1:sW2O+DoNF+my1PGlSZ3zG2N+fdxLR3DC0l4sXCM0lBE=
+	dep	github.com/sagernet/sing	v0.9.4	h1:nIdH+Yvy4NzTezB+c3z/9of1jLRggnrtMtb3uMOIaNM=
+	dep	github.com/sagernet/sing-mux	v0.3.6	h1:ix+CPhZsR9XIAmEVLIUdz+itDzXs1T6iKO8eF/XOVOQ=
+	dep	github.com/sagernet/sing-quic	v0.7.0	h1:dgbJdRYsa9DXbgjchnuVf2xhAvjY4/jylWdNNVZWmRU=
 	dep	github.com/sagernet/sing-shadowsocks	v0.2.8	h1:PURj5PRoAkqeHh2ZW205RWzN9E9RtKCVCzByXruQWfE=
 	dep	github.com/sagernet/sing-shadowsocks2	v0.2.1	h1:dWV9OXCeFPuYGHb6IRqlSptVnSzOelnqqs2gQ2/Qioo=
 	dep	github.com/sagernet/sing-shadowtls	v0.2.1	h1:ZiHZdnEnP+YS73NMsxiZmIFCwNd0M4k7PkGCKNXhbaM=
-	dep	github.com/sagernet/sing-snell	v0.0.0-20260824011554-f8ab8029469a
-	=>	github.com/reF1nd/sing-snell	v0.0.0-20260824091114-c7a4132b95a4	h1:k3w8X9C+gj9TuigLxHBhLXvN50g2vc1Fllk3bNdOyyY=
+	dep	github.com/sagernet/sing-snell	v0.0.0-20260829071736-20f2eaec77c3
+	=>	github.com/reF1nd/sing-snell	v0.0.0-20260830022900-9f5971f89117	h1:6p8x/GZSsueghjACRwrq+1QuLq8pwUYOMXipM1iUu/c=
 	
-	dep	github.com/sagernet/sing-tun	v0.9.0-beta.2
-	=>	github.com/reF1nd/sing-tun	v0.8.14-0.20260822142740-b280d5781283	h1:LqPgeh4S+y+6tHQlxke00NMKfK/KmaPfXZZ1sBFVtao=
+	dep	github.com/sagernet/sing-tun	v0.9.3
+	=>	github.com/reF1nd/sing-tun	v0.9.4-0.20260913133025-0af6293f1ef0	h1:gjH4GnmlOL0EdeC54EzptR3oidDCIVremX9fOH1NC4Y=
 	
-	dep	github.com/sagernet/sing-vmess	v0.2.8-0.20250909125414-3aed155119a1	h1:aSwUNYUkVyVvdmBSufR8/nRFonwJeKSIROxHcm5br9o=
+	dep	github.com/sagernet/sing-vmess	v0.2.8	h1:xd5nnDOMlC76RgrLksS4jlk3eMt3c3CvQY3NsjWPWeI=
 	dep	github.com/sagernet/smux	v1.5.50-sing-box-mod.1	h1:XkJcivBC9V4wBjiGXIXZ229aZCU1hzcbp6kSkkyQ478=
 	dep	github.com/sagernet/ws	v0.0.0-20231204124109-acfe8907c854	h1:6uUiZcDRnZSAegryaUGwPC/Fj13JSHwiTftrXhMmYOc=
 	dep	github.com/spf13/cobra	v1.10.2	h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=
@@ -93,12 +94,11 @@ sing-box-ttlink-linux-amd64: go1.26.6
 	build	-compiler=gc
 	build	-tags=with_quic,with_utls,with_clash_api,with_gvisor,with_ebpf,badlinkname,tfogo_checklinkname0
 	build	-trimpath=true
-	build	DefaultGODEBUG=cryptocustomrand=1,tlssecpmlkem=0,urlstrictcolons=0
 	build	CGO_ENABLED=0
 	build	GOARCH=amd64
 	build	GOOS=linux
 	build	GOAMD64=v1
 	build	vcs=git
-	build	vcs.revision=1eeea68a0bbcfa1a92af06149f95f41d73b3db49
-	build	vcs.time=2026-08-24T11:05:23Z
+	build	vcs.revision=6754cc79bc477a5411af8c7d8e7fa97d441c4986
+	build	vcs.time=2026-09-15T07:34:06Z
 	build	vcs.modified=false
