@@ -1,0 +1,4 @@
+Base sing-box: reF1nd/sing-box v1.14.1-reF1nd
+Base sing-ebpf: c52c21d4066a6e9e92fef2cf13bbf681357f2d78
+TTLink backport: BPF_CGROUP_INET_SOCK_RELEASE EPERM/EACCES is optional and falls back to LRU cleanup.
+Safety: no flags=0 exclusive cgroup attach fallback is included.

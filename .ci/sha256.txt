@@ -1,2 +1,2 @@
-3aeb37d9cbf3daa77d676ee4f371d465cb78b0b3a3803450a5238bcd7fa760c1  sing-box-ttlink-android-arm64
-5f3757d17eb8472202939cdbd986c70d6bdcee2aed299ecbf26beed04892cfe6  sing-box-ttlink-linux-amd64
+bd4094fa933a500d1318d0790c344a7d1766bcf657ae3bdcca486bcf0a3c053b  sing-box-ttlink-android-arm64
+ca24d028e4bca813fa887a2a71291d955e76e095ccc9f5a87e801ec0d9f5913c  sing-box-ttlink-linux-amd64
