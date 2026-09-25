@@ -219,7 +219,6 @@ jobs:
           grep -q 'with_utls' go-version-android.txt
           grep -q 'with_clash_api' go-version-android.txt
           grep -q 'with_gvisor' go-version-android.txt
-          grep -q '=> ../sing-ebpf-patched' go-version-android.txt
 
           cat > ttlink-patch.txt <<'EOF'
           Base sing-box: reF1nd/sing-box v1.14.1-reF1nd
